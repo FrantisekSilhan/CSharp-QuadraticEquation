@@ -45,11 +45,32 @@ namespace ConsoleApp1
             int rootCount = RootCount();
             float discriminant = Discriminant();
 
+            if (A == 0)
+            {
+                return new float[] { -C / B };
+            }
+
             if (rootCount == 0) return new float[] { };
 
             if (rootCount == 1) return new float[] { -B / (2 * A) };
 
-            return new float[] { (-B + discriminant) / (2 * A), (-B - discriminant) / (2 * A) };
+            return new float[] { (-B + MathF.Sqrt(discriminant)) / (2 * A), (-B - MathF.Sqrt(discriminant)) / (2 * A) };
+        }
+        public float[] Vertex()
+        {
+            if (A == 0)
+            {
+                return new float[] { };
+            }
+
+            float x = -B / (2 * A);
+            float y = A * x * x + B * x + C;
+            return new float[] { x, y };
+        }
+
+        public float Value(float x)
+        {
+            return A * x * x + B * x + C;
         }
     }
 }
