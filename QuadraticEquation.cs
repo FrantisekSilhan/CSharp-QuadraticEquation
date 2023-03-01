@@ -10,6 +10,7 @@ namespace ConsoleApp1
     {
         public QuadraticEquation(float a, float b, float c)
         {
+            if (a == 0) throw new Exception("Rovnice není kvadratická!");
             A = a;
             B = b;
             C = c;
@@ -45,11 +46,6 @@ namespace ConsoleApp1
             int rootCount = RootCount();
             float discriminant = Discriminant();
 
-            if (A == 0)
-            {
-                return new float[] { -C / B };
-            }
-
             if (rootCount == 0) return new float[] { };
 
             if (rootCount == 1) return new float[] { -B / (2 * A) };
@@ -58,11 +54,6 @@ namespace ConsoleApp1
         }
         public float[] Vertex()
         {
-            if (A == 0)
-            {
-                return new float[] { };
-            }
-
             float x = -B / (2 * A);
             float y = A * x * x + B * x + C;
             return new float[] { x, y };

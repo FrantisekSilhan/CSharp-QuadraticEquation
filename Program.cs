@@ -1,6 +1,6 @@
 ﻿using ConsoleApp1;
 
-QuadraticEquation rovnice = new QuadraticEquation(6, -6, 8);
+QuadraticEquation rovnice = new QuadraticEquation(0, -6, 8);
 
 Console.WriteLine(rovnice.Discriminant());
 Console.WriteLine("---");
